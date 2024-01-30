@@ -4,8 +4,7 @@
   "info": {
     "singularName": "item",
     "pluralName": "items",
-    "displayName": "item",
-    "description": ""
+    "displayName": "Item"
   },
   "options": {
     "draftAndPublish": true
@@ -25,15 +24,14 @@
       "type": "decimal"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "category": {
       "type": "enumeration",

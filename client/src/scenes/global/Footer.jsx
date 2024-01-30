@@ -24,10 +24,9 @@ function Footer() {
             mb="30px"
             color={shades.secondary[500]}
           >
-            JEVITECH STORE
+            JTC STORE
           </Typography>
           <div>
-            TEXT....
           </div>
         </Box>
 
@@ -56,7 +55,7 @@ function Footer() {
             Contact Us
           </Typography>
           <Typography mb="30px">
-            Suite F14, Mapa House Biashara Street, Kiambu
+            Suite F14, Mapa House Biashara street, Kiambu
           </Typography>
           <Typography mb="30px" sx={{ wordWrap: "break-word" }}>
             Email: tevingichoya@gmail.com
