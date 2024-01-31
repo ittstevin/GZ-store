@@ -6,6 +6,19 @@ function Footer() {
   const {
     palette: { neutral },
   } = useTheme();
+
+  const handleLocationClick = () => {
+    window.open('https://www.google.com/maps/place/K-UNITY+SACCO+LIMITED/@-1.1716512,36.8286882,19.75z/data=!4m6!3m5!1s0x182f3c5e3c19e2cf:0x983a043433b9c75!8m2!3d-1.1716421!4d36.828766!16s%2Fg%2F1q62jynzz?entry=ttu');
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:tevingichoya@gmail.com';
+  };
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+254762005479';
+  };
+
   return (
     <Box marginTop="70px" padding="40px 0" backgroundColor={neutral.light}>
       <Box
@@ -24,9 +37,10 @@ function Footer() {
             mb="30px"
             color={shades.secondary[500]}
           >
-            JTC STORE
+            GZ STORE
           </Typography>
           <div>
+          Discover the latest in cutting-edge technology at GZ STORE. Elevate your digital experience with our curated selection of innovative gadgets, top-tier electronics, and must-have tech accessories. From state-of-the-art smartphones to powerful laptops, we're your go-to destination for staying connected and ahead in the digital world. Explore, shop, and embrace the future with GZ STORE.
           </div>
         </Box>
 
@@ -54,13 +68,15 @@ function Footer() {
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Contact Us
           </Typography>
-          <Typography mb="30px">
+          <Typography mb="30px" onClick={handleLocationClick} style={{ cursor: 'pointer', color: shades.primary[1000] }}>
             Suite F14, Mapa House Biashara street, Kiambu
           </Typography>
-          <Typography mb="30px" sx={{ wordWrap: "break-word" }}>
-            Email: tevingichoya@gmail.com
+          <Typography mb="30px" onClick={handleEmailClick} style={{ cursor: 'pointer', color: shades.primary[1000] }}>
+            tevingichoya@gmail.com
           </Typography>
-          <Typography mb="30px">+254 762 005 479</Typography>
+          <Typography mb="30px" onClick={handlePhoneClick} style={{ cursor: 'pointer', color: shades.primary[1000] }}>
+            +254 762 005 479
+          </Typography>
         </Box>
       </Box>
     </Box>
