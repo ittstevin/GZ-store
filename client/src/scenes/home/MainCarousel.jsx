@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Box, Typography, IconButton, useMediaQuery } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -5,7 +6,6 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { shades } from "../../theme";
 
-// imports all images from assets folder
 const importAll = (r) =>
   r.keys().reduce((acc, item) => {
     acc[item.replace("./", "")] = r(item);
@@ -18,15 +18,37 @@ export const heroTextureImports = importAll(
 
 const MainCarousel = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % Object.values(heroTextureImports).length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + Object.values(heroTextureImports).length) % Object.values(heroTextureImports).length);
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % Object.values(heroTextureImports).length);
+  };
+
   return (
     <Carousel
       infiniteLoop={true}
       showThumbs={false}
       showIndicators={false}
       showStatus={false}
+      selectedItem={currentIndex}
       renderArrowPrev={(onClickHandler, hasPrev, label) => (
         <IconButton
-          onClick={onClickHandler}
+          onClick={() => {
+            handlePrevClick();
+            onClickHandler();
+          }}
           sx={{
             position: "absolute",
             top: "50%",
@@ -41,7 +63,10 @@ const MainCarousel = () => {
       )}
       renderArrowNext={(onClickHandler, hasNext, label) => (
         <IconButton
-          onClick={onClickHandler}
+          onClick={() => {
+            handleNextClick();
+            onClickHandler();
+          }}
           sx={{
             position: "absolute",
             top: "50%",
