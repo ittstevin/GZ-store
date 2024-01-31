@@ -1,11 +1,17 @@
 import { useTheme } from "@emotion/react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
+import { useState } from "react";
 import { shades } from "../../theme";
+import Chat from "./Chat"; // Import the Chat component
 
 function Footer() {
   const {
     palette: { neutral },
   } = useTheme();
+
+  // State for chat messages
+  const [chatMessages, setChatMessages] = useState([]);
+  const [isChatOpen, setChatOpen] = useState(false);
 
   const handleLocationClick = () => {
     window.open('https://www.google.com/maps/place/K-UNITY+SACCO+LIMITED/@-1.1716512,36.8286882,19.75z/data=!4m6!3m5!1s0x182f3c5e3c19e2cf:0x983a043433b9c75!8m2!3d-1.1716421!4d36.828766!16s%2Fg%2F1q62jynzz?entry=ttu');
@@ -18,6 +24,14 @@ function Footer() {
   const handlePhoneClick = () => {
     window.location.href = 'tel:+254762005479';
   };
+
+  const handleChatButtonClick = () => {
+    // Open the chat and add a welcome message
+    setChatMessages([{ text: 'Wait a minute as we look for someone to help you', sender: 'system' }]);
+    setChatOpen(true); // Set isChatOpen to true
+    // ... Additional logic if needed
+  };
+  
 
   return (
     <Box marginTop="70px" padding="40px 0" backgroundColor={neutral.light}>
@@ -40,7 +54,7 @@ function Footer() {
             GZ STORE
           </Typography>
           <div>
-          Discover the latest in cutting-edge technology at GZ STORE. Elevate your digital experience with our curated selection of innovative gadgets, top-tier electronics, and must-have tech accessories. From state-of-the-art smartphones to powerful laptops, we're your go-to destination for staying connected and ahead in the digital world. Explore, shop, and embrace the future with GZ STORE.
+            Discover the latest in cutting-edge technology at GZ STORE. Elevate your digital experience with our curated selection of innovative gadgets, top-tier electronics, and must-have tech accessories. From state-of-the-art smartphones to powerful laptops, we're your go-to destination for staying connected and ahead in the digital world. Explore, shop, and embrace the future with GZ STORE.
           </div>
         </Box>
 
@@ -77,6 +91,34 @@ function Footer() {
           <Typography mb="30px" onClick={handlePhoneClick} style={{ cursor: 'pointer', color: shades.primary[1000] }}>
             +254 762 005 479
           </Typography>
+          
+          {/* Chat Button */}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleChatButtonClick}
+            sx={{ marginTop: '20px' }}
+          >
+            CHAT WITH ME
+          </Button>
+
+          {/* Chat Box */}
+          {isChatOpen && (
+            <div
+              style={{
+                position: 'fixed',
+                bottom: '10px',
+                right: '10px',
+                backgroundColor: '#fff',
+                border: '1px solid #ccc',
+                borderRadius: '5px',
+                padding: '10px',
+                boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              <Chat messages={chatMessages} onClose={() => setChatOpen(false)} />
+            </div>
+          )}
         </Box>
       </Box>
     </Box>
