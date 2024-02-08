@@ -6,7 +6,7 @@ import {
   MenuOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 
@@ -52,7 +52,9 @@ function Navbar() {
             <SearchOutlined />
           </IconButton>
           <IconButton sx={{ color: "black" }}>
-            <PersonOutline />
+            <Link to="/Profile" style={{ color: "inherit", textDecoration: "none" }}> 
+             <PersonOutline />
+            </Link>
           </IconButton>
           <Badge
             badgeContent={cart.length}
