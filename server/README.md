@@ -1,57 +1,36 @@
-# 🚀 Getting started with Strapi
+# Server
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Overview
+The `websocket-server` and `strapi-server` folders contain the backend code for the web application. These parts of the project handle various server-side functionalities such as WebSocket communication for user admin chat and content management using Strapi.
 
-### `develop`
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Technologies Used
+- **JavaScript**: The primary programming language used in the server-side code.
+- **Node.js**: A JavaScript runtime for building server-side applications.
+- **WebSocket**: A communication protocol for real-time, bidirectional communication between clients and servers.
+- **Strapi**: A headless CMS (Content Management System) for managing application content.
 
-```
-npm run develop
-# or
-yarn develop
-```
+## Getting Started
+Follow these steps to set up and run the backend servers:
 
-### `start`
+### WebSocket Server
+1. Navigate to the `websocket-server` directory.
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the WebSocket server.
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+### Strapi Server
+1. Navigate to the `strapi-server` directory.
+2. Run `npm install` to install dependencies.
+3. Run `npm run develop` to start the Strapi server.
 
-```
-npm run start
-# or
-yarn start
-```
+## Additional Notes
+- Ensure that the necessary environment variables are properly configured for the servers to function correctly.
+- WebSocket server is responsible for facilitating real-time communication between administrators for chat functionality.
+- Strapi server is used for content management, where administrators can upload and manage application content.
 
-### `build`
+## Contributors
+- [Tevin Munene](https://github.com/ittstevin)
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+## License
+This project is licensed under the [MIT License](../LICENSE).
 
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
