@@ -10,6 +10,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../../theme";
 import { addToCart } from "../../state";
 import { useDispatch } from "react-redux";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -50,6 +51,12 @@ const ItemDetails = () => {
     getItems();
   }, [itemId]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+254790817497";
+    const message = `Hi, I would like to order ${item?.attributes?.name}.`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
   return (
     <Box width="80%" m="80px auto">
       <Box display="flex" flexWrap="wrap" columnGap="40px">
@@ -73,6 +80,7 @@ const ItemDetails = () => {
 
           <Box m="65px 0 25px 0">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
+
             <Typography>${item?.attributes?.price}</Typography>
             <Typography sx={{ mt: "20px" }}>
               {item?.attributes?.longDescription}
@@ -108,6 +116,14 @@ const ItemDetails = () => {
               ADD TO CART
             </Button>
           </Box>
+
+          <Box display="flex" alignItems="center" mt={1}>
+              <IconButton onClick={handleWhatsAppClick}>
+                <WhatsAppIcon />
+              </IconButton>
+              <Typography>Order via WhatsApp</Typography>
+            </Box>
+
           <Box>
             <Box m="20px 0 5px 0" display="flex">
               <FavoriteBorderOutlinedIcon />
